@@ -6,7 +6,7 @@ function up {
 	if [ $keyName ]; then
 		down
 		echo 'VPN up success'
-		nohup openvpn $keyName >/dev/null 2>/dev/null &
+		openvpn $keyName >/dev/null 2>/dev/null &
 	else
 		echo 'VPN Error:'
 		echo 'Файл ключа (.ovpn) не найден'
@@ -18,7 +18,7 @@ function down {
 	local idVpn=$(getIdVpn)
 	if [ $idVpn ]; then
 		echo 'VPN down success'
-		nohup kill -KILL  $idVpn >/dev/null 2>/dev/null &
+		kill -KILL  $idVpn >/dev/null 2>/dev/null &
 	fi
 }
 
